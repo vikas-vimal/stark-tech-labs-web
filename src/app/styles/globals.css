@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+} */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  .bg-blur-light {
+    @apply relative z-[-1]
+    flex
+    place-items-center
+    before:absolute
+    before:h-[300px]
+    before:w-full
+    before:-translate-x-1/4
+    before:rounded-full
+    before:bg-gradient-radial
+    before:from-white
+    before:to-transparent
+    before:blur-2xl
+    before:content-['']
+    after:absolute
+    after:-z-20
+    before:-z-10
+    after:h-[220px]
+    after:lg:h-[220px]
+    after:w-full
+    after:translate-x-1/4
+    after:lg:translate-x-72
+    after:bg-gradient-conic
+    after:from-sky-200
+    after:via-blue-200
+    after:blur-3xl
+    after:content-['']
+    before:dark:bg-gradient-to-br
+    before:dark:from-transparent
+    before:dark:to-blue-700
+    before:dark:opacity-40
+    after:dark:from-sky-900
+    after:dark:via-[#0141ff]
+    after:dark:opacity-60
+    sm:before:w-[480px]
+    sm:after:w-[240px]
+    before:lg:h-[360px];
+  }
+}
+.service-card {
+  @apply py-6 px-6 bg-gray-900 rounded-lg border border-gray-700 w-full md:w-1/6 text-center min-h-20 md:min-h-40 flex items-center justify-center flex-1 flex-col;
+}
