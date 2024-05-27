@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <main className="text-gray-200">
-      <section className="flex flex-col items-center justify-center p-6 min-h-svh">
+      <section className="flex flex-col items-center justify-center p-6 md:pt-24 min-h-svh md:min-h-[700px]">
         <div className="bg-blur-light">
           <h1 className="text-center md:text-3xl">
             <span className="block leading-[1.6em]">
@@ -27,7 +27,7 @@ export default function Home() {
             </span>
           </h1>
         </div>
-        <div className="mt-0 md:mt-32 translate-y-36 md:translate-y-0">
+        <div className="mt-0 md:mt-24 translate-y-36 md:translate-y-0">
           <a
             href="#services"
             onClick={(e) => {
@@ -35,14 +35,31 @@ export default function Home() {
               scrollToSection("services");
             }}
           >
-            <button className="border border-opacity-20 hover:border-opacity-40 bg-transparent hover:bg-white hover:bg-opacity-10 active:opacity-60 border-white py-3 px-8 rounded-full inline-block">
-              Get Started
+            <button className="border border-opacity-20 hover:border-opacity-40 bg-blue-600 hover:bg-blue-500 active:opacity-60 border-white py-3 px-8 rounded-full inline-block font-semibold">
+              Get In Touch
             </button>
           </a>
         </div>
       </section>
 
-      <section className="py-16 min-h-96 container mx-auto px-8" id="services">
+      <section className="py-0 container mx-auto px-8">
+        {/* <div className="text-center mb-4"></div> */}
+        <div className="flex flex-row items-center justify-center gap-5">
+          <h2 className="font-normal opacity-50">Trusted by</h2>
+          {TrustedPartners.map((item, index) => (
+            <Image
+              key={index}
+              src={item.logoSrc}
+              alt={item.title}
+              className="dark:invert invert opacity-80"
+              width={40}
+              height={40}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="py-16 md:py-32 min-h-96 container mx-auto px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-medium">Things we can do for you.</h2>
         </div>
@@ -94,25 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 min-h-40 container mx-auto px-8" id="services">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-medium">Trusted by</h2>
-        </div>
-        <div className="flex flex-row items-center justify-center gap-5">
-          {TrustedPartners.map((item, index) => (
-            <Image
-              key={index}
-              src={item.logoSrc}
-              alt={item.title}
-              className="dark:invert invert opacity-80"
-              width={40}
-              height={40}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="py-20 min-h-40 container mx-auto px-8" id="services">
+      <section className="py-14 min-h-40 container mx-auto px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-medium">Why us?</h2>
         </div>
@@ -150,6 +149,76 @@ export default function Home() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="py-14 min-h-40 container mx-auto px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-medium">Get in touch</h2>
+        </div>
+        <form className="flex flex-col items-center md:items-start justify-center gap-3">
+          <label className="flex flex-col w-full">
+            <span className="block">Name</span>
+            <input
+              type="text"
+              name="name"
+              required
+              minLength={3}
+              maxLength={300}
+              className="flex-1"
+            />
+          </label>
+
+          <label className="flex flex-col w-full">
+            <span className="block">Email</span>
+            <input
+              type="email"
+              name="email"
+              required
+              maxLength={300}
+              className="flex-1"
+            />
+          </label>
+          <label className="flex flex-col w-full">
+            <span className="block">Phone</span>
+            <div className="flex">
+              <select name="country_code" value={"+91"}>
+                <option value="+91" selected>
+                  +91
+                </option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+                <option value="+61">+61</option>
+                <option value="+62">+62</option>
+                <option value="+966">+966</option>
+              </select>
+              <input type="tel" name="phone" required className="flex-1" />
+            </div>
+          </label>
+
+          <label className="flex flex-col w-full">
+            <span className="block">Company Name</span>
+            <input
+              type="text"
+              name="company_name"
+              required
+              minLength={3}
+              maxLength={300}
+              className="flex-1"
+            />
+          </label>
+
+          <label className="flex flex-col w-full">
+            <span className="block">Message</span>
+            <textarea
+              name="message"
+              required
+              minLength={3}
+              maxLength={300}
+              rows={5}
+              className="flex-1"
+            ></textarea>
+          </label>
+        </form>
       </section>
     </main>
   );
