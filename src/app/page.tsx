@@ -2,6 +2,7 @@
 
 import { TrustedPartners } from "@/constants/trusted-partners.constant";
 import Image from "next/image";
+import ContactUsForm from "./contact-us/form/ContactUsForm";
 
 export default function Home() {
   // Function to handle the scroll
@@ -155,70 +156,7 @@ export default function Home() {
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-medium">Get in touch</h2>
         </div>
-        <form className="flex flex-col items-center md:items-start justify-center gap-3">
-          <label className="flex flex-col w-full">
-            <span className="block">Name</span>
-            <input
-              type="text"
-              name="name"
-              required
-              minLength={3}
-              maxLength={300}
-              className="flex-1"
-            />
-          </label>
-
-          <label className="flex flex-col w-full">
-            <span className="block">Email</span>
-            <input
-              type="email"
-              name="email"
-              required
-              maxLength={300}
-              className="flex-1"
-            />
-          </label>
-          <label className="flex flex-col w-full">
-            <span className="block">Phone</span>
-            <div className="flex">
-              <select name="country_code" value={"+91"}>
-                <option value="+91" selected>
-                  +91
-                </option>
-                <option value="+1">+1</option>
-                <option value="+44">+44</option>
-                <option value="+61">+61</option>
-                <option value="+62">+62</option>
-                <option value="+966">+966</option>
-              </select>
-              <input type="tel" name="phone" required className="flex-1" />
-            </div>
-          </label>
-
-          <label className="flex flex-col w-full">
-            <span className="block">Company Name</span>
-            <input
-              type="text"
-              name="company_name"
-              required
-              minLength={3}
-              maxLength={300}
-              className="flex-1"
-            />
-          </label>
-
-          <label className="flex flex-col w-full">
-            <span className="block">Message</span>
-            <textarea
-              name="message"
-              required
-              minLength={3}
-              maxLength={300}
-              rows={5}
-              className="flex-1"
-            ></textarea>
-          </label>
-        </form>
+        <ContactUsForm />
       </section>
     </main>
   );
