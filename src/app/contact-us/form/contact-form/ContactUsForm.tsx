@@ -1,12 +1,11 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { ContactFormValuesType, submitContactForm } from "../../actions";
-import ErrorText from "@/app/global/ErrorText";
 import { ContactFormSchema } from "@/lib/schema/contact-form.schema";
+import { useRef } from "react";
 import { useFormState } from "react-dom";
+import { toast } from "react-toastify";
+import { submitContactForm } from "../../actions";
 import { IContactFormState } from "./contact-form.interface";
 import ContactFormFields from "./ContactFormFields";
-import { toast } from "react-toastify";
 
 const initialFormState: IContactFormState = {
   errors: {

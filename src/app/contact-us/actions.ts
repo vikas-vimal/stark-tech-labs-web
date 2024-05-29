@@ -2,7 +2,6 @@
 
 import connectMongo from "@/db/mongo.connection";
 import ContactMessageModel from "@/lib/models/contact-message.model";
-import { NextResponse } from "next/server";
 
 export type ContactFormValuesType = {
   name?: string;
