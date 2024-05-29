@@ -2,7 +2,7 @@
 
 import { TrustedPartners } from "@/constants/trusted-partners.constant";
 import Image from "next/image";
-import ContactUsForm from "./contact-us/form/ContactUsForm";
+import ContactUsForm from "./contact-us/form/contact-form/ContactUsForm";
 
 export default function Home() {
   // Function to handle the scroll
@@ -156,7 +156,9 @@ export default function Home() {
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-medium">Get in touch</h2>
         </div>
-        <ContactUsForm />
+        <div className="max-w-[500px] mx-auto">
+          <ContactUsForm />
+        </div>
       </section>
     </main>
   );
