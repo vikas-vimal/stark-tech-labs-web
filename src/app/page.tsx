@@ -159,7 +159,7 @@ export default function Home() {
 
       <section className="py-14 container mx-auto px-8">
         {/* <div className="text-center mb-4"></div> */}
-        <div className="flex flex-col flex-row items-center justify-center gap-5">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-5">
           {/* <h2 className="font-normal opacity-50">
             Reviews
           </h2> */}
