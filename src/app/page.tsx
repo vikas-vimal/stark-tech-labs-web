@@ -3,6 +3,7 @@
 import { TrustedPartners } from "@/constants/trusted-partners.constant";
 import Image from "next/image";
 import ContactUsForm from "./contact-us/form/contact-form/ContactUsForm";
+import { ReviewScreenshots } from "@/constants/review-ss.constant";
 
 export default function Home() {
   // Function to handle the scroll
@@ -15,8 +16,8 @@ export default function Home() {
 
   return (
     <main className="text-gray-200">
-      <section className="flex flex-col items-center justify-center p-6 md:pt-24 min-h-svh md:min-h-[700px]">
-        <div className="bg-blur-light">
+      <section className="hero-bg flex flex-col items-center justify-center p-6 md:pt-24 min-h-svh md:min-h-[700px]">
+        <div className="">
           <h1 className="text-center md:text-3xl">
             <span className="block leading-[1.6em]">
               A team of passionate software engineers,
@@ -37,7 +38,7 @@ export default function Home() {
             }}
           >
             <button className="border border-opacity-20 hover:border-opacity-40 bg-blue-600 hover:bg-blue-500 active:opacity-60 border-white py-3 px-8 rounded-full inline-block font-semibold">
-              Get In Touch
+              Explore our Services
             </button>
           </a>
         </div>
@@ -45,18 +46,22 @@ export default function Home() {
 
       <section className="py-0 container mx-auto px-8">
         {/* <div className="text-center mb-4"></div> */}
-        <div className="flex flex-row items-center justify-center gap-5">
-          <h2 className="font-normal opacity-50">Trusted by</h2>
-          {TrustedPartners.map((item, index) => (
-            <Image
-              key={index}
-              src={item.logoSrc}
-              alt={item.title}
-              className="dark:invert invert opacity-80"
-              width={40}
-              height={40}
-            />
-          ))}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+          <h2 className="font-normal opacity-50 md:max-w-48">
+            Trusted by Startup Founders & Tech-VCs
+          </h2>
+          <div className="flex flex-row items-center justify-center gap-5">
+            {TrustedPartners.map((item, index) => (
+              <Image
+                key={index}
+                src={item.logoSrc}
+                alt={item.title}
+                className="dark:invert invert opacity-80"
+                width={40}
+                height={40}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -149,6 +154,26 @@ export default function Home() {
               journey. We understand and value this in our software building process.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="py-14 container mx-auto px-8">
+        {/* <div className="text-center mb-4"></div> */}
+        <div className="flex flex-row items-center justify-center gap-5">
+          {/* <h2 className="font-normal opacity-50">
+            Trusted by Startup Founders & Tech-VCs
+          </h2> */}
+          {ReviewScreenshots.map((item, index) => (
+            <a key={index} href={item.url} target="_blank">
+              <Image
+                src={item.imageUrl}
+                alt={item.url}
+                className="opacity-90 rounded-2xl"
+                width={380}
+                height={380}
+              />
+            </a>
+          ))}
         </div>
       </section>
 
